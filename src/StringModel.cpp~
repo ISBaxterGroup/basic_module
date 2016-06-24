@@ -1,0 +1,184 @@
+//----------------------------------------------------------
+// include
+//----------------------------------------------------------
+#include "StringModel.h"
+#include <iostream>
+//----------------------------------------------------------
+// Constant parameter
+//----------------------------------------------------------
+const double StringModel::INIT_DIST_PAR_TO_PAR(0.01);
+//const double StringModel::INIT_K(100);
+//const double StringModel::INIT_D(0.08);
+
+const double StringModel::INIT_K(500);
+const double StringModel::INIT_D(0.10);
+
+//----------------------------------------------------------
+// Constructor
+//----------------------------------------------------------
+StringModel::StringModel(){ 
+	stable_dist = INIT_DIST_PAR_TO_PAR;
+	k = INIT_K;
+	d = INIT_D;
+};
+
+// StringModel(begin (fixed), back (fixed, handring) )
+StringModel::StringModel(const cv::Vec3d & x1, const cv::Vec3d & x2){
+	stable_dist = INIT_DIST_PAR_TO_PAR;
+	k = INIT_K;
+	d = INIT_D;
+
+	// Make Tip particle
+	Particle ptcl1(x1);
+	Particle ptcl2(x2);
+
+	// Fix particle
+	ptcl1.fix();
+	ptcl2.fix();
+
+	// Set particle
+	lis_particle.push_back(ptcl1);
+	for(int i = 0; (i + 1) * INIT_DIST_PAR_TO_PAR < norm(x1 - x2); ++i ){
+		cv::Vec3d n = (x2 - x1) * (1.0 / norm(x2 - x1));
+		cv::Vec3d ix = (i + 1) * INIT_DIST_PAR_TO_PAR * n + x1;
+		Particle ptcl(ix);
+		lis_particle.push_back(ptcl);
+	}
+
+	// lis_particle.pop_back();
+	lis_particle.push_back(ptcl2);
+
+	// Set list of fixed particle iterator 
+	{
+		list<Particle>::iterator it_fixedPtcl1;
+		list<Particle>::iterator it_fixedPtcl2;
+		Particle * p_ptcl1;
+		Particle * p_ptcl2;
+
+		it_fixedPtcl1 = lis_particle.begin();
+		p_ptcl1 = &(*it_fixedPtcl1);
+		lis_fixed_particle.push_back(p_ptcl1);
+
+		p_ptcl2 = &lis_particle.back();
+		lis_fixed_particle.push_back(p_ptcl2);
+	}
+
+};
+
+StringModel::StringModel(const StringModel & i_strModel){
+	stable_dist = i_strModel.stable_dist;
+	k = i_strModel.k;
+	d = i_strModel.d;
+	lis_particle = i_strModel.lis_particle;
+	lis_fixed_particle = i_strModel.lis_fixed_particle;
+	handle = i_strModel.handle;
+};
+
+
+//----------------------------------------------------------
+// Setter
+//----------------------------------------------------------
+// Set stable dist of spring 
+void StringModel::set_stable_dist(const double & sDist) { stable_dist = sDist; };
+// Set handring particle pointer
+void StringModel::set_handle(Particle* i_handle) { handle = i_handle; };
+
+//----------------------------------------------------------
+// Getter
+//----------------------------------------------------------
+
+int StringModel::get_particle_num() const { return lis_particle.size(); };
+// Retuen stable dist of spring
+double StringModel::get_stable_dist() const { return stable_dist; };
+// Return handring particle pointer
+Particle* StringModel::get_handle() const { return handle; };
+
+// Return string iterator
+list<Particle>::iterator StringModel::get_string_begin(){ 
+	list<Particle>::iterator it = lis_particle.begin();
+	return it; 
+};
+
+list<Particle>::iterator StringModel::get_string_back(){ 
+	list<Particle>::iterator it = lis_particle.begin();
+	for(int i = 0; i + 1 < lis_particle.size(); ++ i){
+		++ it;
+	}
+	return it; 
+};
+
+list<Particle>::iterator StringModel::get_string_end(){ 
+	list<Particle>::iterator it = lis_particle.end();
+	return it; 
+};
+
+// Get fastest particle velocity
+Vec3d StringModel::get_max_v(){
+	Vec3d maxVel;
+	Vec3d vBuf;
+	list<Particle>::iterator it = lis_particle.begin();
+	maxVel = (*it).get_v();
+	++ it;
+	while(it != lis_particle.end()){
+		vBuf = (*it).get_v();
+		if(norm(maxVel) < norm(vBuf)){
+			maxVel = vBuf;
+		}
+		++ it;
+	}
+	return maxVel;
+};
+
+//----------------------------------------------------------
+// Move string
+//----------------------------------------------------------
+
+void StringModel::calc_force(){
+	lis_fixed_particle.clear();
+	list<Particle>::iterator p1 = lis_particle.begin();
+	list<Particle>::iterator p2 = lis_particle.begin();
+	++ p2;
+	// Add force 
+	while(p2 != lis_particle.end()){
+		FCalculator::add_spring_force(stable_dist, k, *p1, *p2);
+		FCalculator::add_damping_force(d, *p1, *p2);
+		++ p1;
+		++ p2;
+	}
+
+	// Add gravity force and check fixity
+	list<Particle>::iterator p3 = lis_particle.begin();
+	Particle *ptcl;
+	while(p3 != lis_particle.end()){
+		// Add gravity force
+		FCalculator::add_g(*p3);
+		// Check fixity
+		if(p3->get_fixity()){
+			ptcl = &(*p3);
+			lis_fixed_particle.push_back(ptcl);
+		}
+		++ p3;
+	}
+	
+};
+// Update string state
+void StringModel::move(){
+	// Turn off the force of fixed particle 
+	list<Particle*>::iterator fxp = lis_fixed_particle.begin();
+	cv::Vec3d zero(0, 0, 0);
+	while(fxp != lis_fixed_particle.end()){
+		(*fxp)->set_f(zero);
+		++ fxp;
+	}
+
+	// Move particle
+	list<Particle>::iterator p1 = lis_particle.begin();
+	while(p1 != lis_particle.end()){
+
+		//p1->move_euler();
+		p1->move_rk2();
+		//p1->move_rk4();
+
+		++ p1;
+	}
+};
