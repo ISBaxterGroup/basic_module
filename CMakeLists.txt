@@ -91,7 +91,7 @@ find_package(OpenCV REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
+  INCLUDE_DIRS
   LIBRARIES display
   CATKIN_DEPENDS baxter_core_msgs geometry_msgs nav_msgs roscpp rospy std_msgs tf
   DEPENDS system_lib
@@ -104,7 +104,6 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  include
   $ENV{HOME}/catkin_ws/src/lis_msgs/include
   ${catkin_INCLUDE_DIRS}
   ${OpenGL_INCLUDE_DIRS}
