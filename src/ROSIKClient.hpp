@@ -15,6 +15,7 @@
 
 typedef std_msgs::String SMString;
 typedef baxter_core_msgs::SolvePositionIK BCMSSolvePositionIK;
+
 //----------------------------------------------------------
 // ROSIKClient
 //----------------------------------------------------------
@@ -26,20 +27,26 @@ public:
 	struct LRRequest : public BCMSSolvePositionIK{
 		explicit LRRequest(const BCMSSolvePositionIK&);
 		LRRequest(const int, const std::array<double, 3>&, const std::array<double, 4>&);
+		LRRequest(const int, const std::array<double, 7>&, const std::array<double, 3>&, const std::array<double, 4>&);
 	};
 	struct LeftRequest : LRRequest{
 		explicit LeftRequest(const BCMSSolvePositionIK&);
 		LeftRequest(const int, const std::array<double, 3>&, const std::array<double, 4>&);
+		LeftRequest(const int, const std::array<double, 7>&, const std::array<double, 3>&, const std::array<double, 4>&);
 	};
 	struct RightRequest : LRRequest{
 		explicit RightRequest(const BCMSSolvePositionIK&);
 		RightRequest(const int, const std::array<double, 3>&, const std::array<double, 4>&);
+		RightRequest(const int, const std::array<double, 7>&, const std::array<double, 3>&, const std::array<double, 4>&);
 	};
 
 	static const int SEED_AUTO;
 	static const int SEED_USER;
 	static const int SEED_CURRENT;
 	static const int SEED_NS_MAP;
+
+	static const std::array<std::string, JOINTS_NUM> LEFT_JOINT_NAMES;
+	static const std::array<std::string, JOINTS_NUM> RIGHT_JOINT_NAMES;
 
 private:
 	bool init_flag;
