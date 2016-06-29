@@ -104,7 +104,6 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  include
   $ENV{HOME}/catkin_ws/src/lis_msgs/include
   ${catkin_INCLUDE_DIRS}
   ${OpenGL_INCLUDE_DIRS}
@@ -148,7 +147,16 @@ target_link_libraries(sample_ik
   ${GLUT_LIBRARY}
   ${catkin_LIBRARIES}
 )
-
+add_executable(sample_stop src/sample_stop.cpp
+  src/ROSIKClient.cpp
+  src/ROSJointController.cpp
+)
+target_link_libraries(sample_stop
+  ${OPENGL_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${GLUT_LIBRARY}
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
