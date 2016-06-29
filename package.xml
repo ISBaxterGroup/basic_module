@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>sample</name>
+  <name>basic_module</name>
   <version>0.0.0</version>
   <description>sample package</description>
 
