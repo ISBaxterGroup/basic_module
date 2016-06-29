@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(sample)
+project(basic_module)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -155,6 +155,12 @@ target_link_libraries(sample_stop
   ${OPENGL_LIBRARIES}
   ${OpenCV_LIBS}
   ${GLUT_LIBRARY}
+  ${catkin_LIBRARIES}
+)
+add_executable(sample_led src/sample_led.cpp
+  src/ROSLEDController.cpp
+)
+target_link_libraries(sample_led
   ${catkin_LIBRARIES}
 )
 #############
