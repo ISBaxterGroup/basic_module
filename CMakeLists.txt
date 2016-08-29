@@ -119,6 +119,7 @@ include_directories(
 set(CMAKE_BUILD_TYPE Debug)
 add_definitions(-std=c++0x)
 
+
 add_executable(sample_hook src/sample_hook.cpp
   src/ROSHookController.cpp
 )

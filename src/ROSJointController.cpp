@@ -6,7 +6,7 @@
 // Constant parameter
 //----------------------------------------------------------
 const unsigned int ROSJointController::POSITION_MODE = 1; 	// Joint controll mode  (position mode)
-const unsigned int ROSJointController::PUBLISH_FREQUENCY = 100;	// Controll loop runs on this frequency
+const unsigned int ROSJointController::PUBLISH_FREQUENCY = 100;	// Controll loop runs on this frequency (must be over 5)
 const double ROSJointController::SPEED_RATIO = 0.15;	// The move speed of motor  0.0 - 1.0 (default 0.3)  
 const double ROSJointController::CMD_TIMEOUT = 1.0;	// Time out until controll mode will losts
 
@@ -42,7 +42,8 @@ ROSJointController::RightJCommand::RightJCommand(const std::array<double, ROSJoi
 // ROSJointController
 //----------------------------------------------------------
 ROSJointController::ROSJointController():
-	exit(false)
+	exit(false),
+	enable_collision_avoidance(true)
 {
 	// Set initial value
 	left_joint_cmd.names.resize(JOINTS_NUM);
@@ -61,19 +62,23 @@ void ROSJointController::init()
 {
 	ros::NodeHandle n;
 	// Publish rate publisher
-	pub_rate = n.advertise<SMUInt16>("robot/joint_state_publish_rate", 1);
+	pub_rate = n.advertise<std_msgs::UInt16>("robot/joint_state_publish_rate", 1);
 
 	// Speed ratio publisher
-	pub_left_speed_ratio = n.advertise<SMFloat64>("robot/limb/left/set_speed_ratio", 1);
-	pub_right_speed_ratio = n.advertise<SMFloat64>("robot/limb/right/set_speed_ratio", 1);
+	pub_left_speed_ratio = n.advertise<std_msgs::Float64>("robot/limb/left/set_speed_ratio", 1);
+	pub_right_speed_ratio = n.advertise<std_msgs::Float64>("robot/limb/right/set_speed_ratio", 1);
 
 	// Timeout publisher
-	pub_left_cmd_timeout = n.advertise<SMFloat64>("robot/limb/left/joint_command_timeout", 1);
-	pub_right_cmd_timeout = n.advertise<SMFloat64>("robot/limb/right/joint_command_timeout", 1);
+	pub_left_cmd_timeout = n.advertise<std_msgs::Float64>("robot/limb/left/joint_command_timeout", 1);
+	pub_right_cmd_timeout = n.advertise<std_msgs::Float64>("robot/limb/right/joint_command_timeout", 1);
 
 	// L,R command publisher
 	pub_left_cmd = n.advertise<BCMJointCommand>("robot/limb/left/joint_command", 32);
 	pub_right_cmd = n.advertise<BCMJointCommand>("robot/limb/right/joint_command", 32);
+
+	// stop collision avoidance publisher
+	pub_left_stop_collision_avoidance = n.advertise<std_msgs::Empty>("/robot/limb/left/suppress_collision_avoidance", 1);
+	pub_right_stop_collision_avoidance = n.advertise<std_msgs::Empty>("/robot/limb/right/suppress_collision_avoidance", 1);
 
 	// Start publish loop
 	try {
@@ -84,6 +89,11 @@ void ROSJointController::init()
 	}
 
 }
+void ROSJointController::collision_avoidance(const bool enable)
+{
+	std::lock_guard<std::mutex> lock(mtx);
+	enable_collision_avoidance = enable; 
+};
 void ROSJointController::set_command(const LeftJCommand& c)
 {
 	std::lock_guard<std::mutex> lock(mtx);
@@ -108,16 +118,16 @@ void ROSJointController::publish_loop()
 	copy_n(INIT_RIGHT_JOINT_COMMAND.begin(), JOINTS_NUM, right_joint_cmd.command.begin());
 
 	// Set the move speed
-	SMFloat64 speed_ratio;
+	std_msgs::Float64 speed_ratio;
 	speed_ratio.data = SPEED_RATIO;
 
 	// Set the update frequency
-	SMUInt16 freq;
+	std_msgs::UInt16 freq;
 	freq.data = PUBLISH_FREQUENCY;
 	pub_rate.publish(freq);
 
 	// Set the time out until controll mode in baxter will losts
-	SMFloat64 timeout;
+	std_msgs::Float64 timeout;
 	timeout.data = CMD_TIMEOUT;
 	pub_left_cmd_timeout.publish(timeout);
 	pub_right_cmd_timeout.publish(timeout);
@@ -125,6 +135,11 @@ void ROSJointController::publish_loop()
 	// publish loop
 	while(1){
 		mtx.lock();
+		
+		if(!enable_collision_avoidance){
+			pub_left_stop_collision_avoidance.publish(std_msgs::Empty());
+			pub_right_stop_collision_avoidance.publish(std_msgs::Empty());
+		}	
 
 		pub_left_speed_ratio.publish(speed_ratio);
 		pub_right_speed_ratio.publish(speed_ratio);
