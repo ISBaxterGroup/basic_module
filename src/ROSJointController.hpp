@@ -67,7 +67,7 @@ public:
 	static const std::array<double, JOINTS_NUM> INIT_RIGHT_JOINT_COMMAND;
 
 private:
-	bool exit;
+	bool exit_;
 	bool enable_collision_avoidance;
 
 	std::mutex mtx;

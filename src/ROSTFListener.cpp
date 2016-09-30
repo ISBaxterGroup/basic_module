@@ -71,7 +71,8 @@ void ROSTFListener::listen_loop()
     tf::StampedTransform tf;
 	ros::Rate loop_timer(freq);
 	// publish loop
-	while(1){
+	bool loop_continue(true);
+	while(loop_continue){
 
 		bool try_success;
 		try{			
@@ -99,7 +100,7 @@ void ROSTFListener::listen_loop()
 		std::copy(std::begin(trans_buf), std::end(trans_buf), std::begin(curr_trans));
 		std::copy(std::begin(rot_buf), std::end(rot_buf), std::begin(curr_rot));
 
-		if(exit) break;
+		loop_continue = !exit;
 
 		mtx.unlock();
 

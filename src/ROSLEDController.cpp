@@ -56,9 +56,10 @@ void ROSLEDController::publish_loop()
 	SMUint16 message;
 	ros::Rate loop_timer(PUBLISH_FREQUENCY);
 	// publish loop
-	while(1){
+	bool loop_continue(true);
+	while(loop_continue){
 		mtx.lock();
-		if(thread_exit) break;
+		loop_continue = !thread_exit;
 		message = to_message(state);
 		mtx.unlock();
 

@@ -42,7 +42,7 @@ ROSJointController::RightJCommand::RightJCommand(const std::array<double, ROSJoi
 // ROSJointController
 //----------------------------------------------------------
 ROSJointController::ROSJointController():
-	exit(false),
+	exit_(false),
 	enable_collision_avoidance(true)
 {
 	// Set initial value
@@ -54,7 +54,7 @@ ROSJointController::ROSJointController():
 ROSJointController::~ROSJointController()
 {
 	mtx.lock();
-	exit = true;
+	exit_ = true;
 	mtx.unlock();
 	if(controll_thread.joinable()) controll_thread.join();
 };
@@ -133,7 +133,8 @@ void ROSJointController::publish_loop()
 	pub_right_cmd_timeout.publish(timeout);
 
 	// publish loop
-	while(1){
+	bool loop_continue(true);
+	while(loop_continue){
 		mtx.lock();
 		
 		if(!enable_collision_avoidance){
@@ -147,7 +148,7 @@ void ROSJointController::publish_loop()
 		pub_left_cmd.publish(left_joint_cmd);
    		pub_right_cmd.publish(right_joint_cmd);
 
-		if(exit) break;
+		loop_continue = !exit_;
 
 		mtx.unlock();
 		loop_timer.sleep(); //sleep
