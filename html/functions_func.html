@@ -79,6 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li class="current"><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -89,6 +90,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_g"><span>g</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
     </ul>
@@ -99,7 +102,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
 <li>call()
-: <a class="el" href="classROSIKClient.html#a289271f113960dab16931b2502433c82">ROSIKClient</a>
+: <a class="el" href="structROSServiceInterface.html#acd697c7159f9934cfb141972bdcb0b55">ROSServiceInterface&lt; T &gt;</a>
+, <a class="el" href="classROSIKClient.html#a289271f113960dab16931b2502433c82">ROSIKClient</a>
+</li>
+<li>close_camera()
+: <a class="el" href="classROSCameraController.html#a9c9bec1dc608f9dc57e13370ef13435c">ROSCameraController</a>
 </li>
 <li>collision_avoidance()
 : <a class="el" href="classROSJointController.html#a0f7ffb421c31b9e59a0728a171e670e0">ROSJointController</a>
@@ -122,8 +129,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get()
+: <a class="el" href="structROSSubscriberInterface.html#a607767970631fd02b71620ca48691642">ROSSubscriberInterface&lt; T &gt;</a>
+</li>
+<li>get_image()
+: <a class="el" href="classROSCameraController.html#a455fbfd986b7243fdf897061a2c801d9">ROSCameraController</a>
+</li>
+<li>get_joint_angle()
+: <a class="el" href="classROSJointController.html#ad752109f17dc093b0f520e8c6da2ead0">ROSJointController</a>
+</li>
+<li>get_left_joint_angle()
+: <a class="el" href="classROSJointController.html#a31ed421073da968ca3b2b7140b8b320a">ROSJointController</a>
+</li>
 <li>get_left_joints()
 : <a class="el" href="classROSIKClient.html#a397ac048d7d8da20c4feccebcf47a0e0">ROSIKClient</a>
+</li>
+<li>get_right_joint_angle()
+: <a class="el" href="classROSJointController.html#a505c9720aa1fc98d9cf8cbdb135fdab9">ROSJointController</a>
 </li>
 <li>get_right_joints()
 : <a class="el" href="classROSIKClient.html#ae883a92e8febc30ef3816f27dae0b67d">ROSIKClient</a>
@@ -136,12 +158,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>init()
-: <a class="el" href="classROSHookController.html#a98762421da7a4cad11bf08f57f659554">ROSHookController</a>
+: <a class="el" href="classROSCameraController.html#a6c715baf2c65b9f6bf45bc4c106eb784">ROSCameraController</a>
+, <a class="el" href="structROSSubscriberInterface.html#ae84bfa2c980fc23580bd41664affdba8">ROSSubscriberInterface&lt; T &gt;</a>
 , <a class="el" href="classROSTFListener.html#aaa2c8023de02aef08896697a50729960">ROSTFListener</a>
-, <a class="el" href="classROSTFBroadcaster.html#a79ad44a742ea8cafb57e281f9ff07a06">ROSTFBroadcaster</a>
+, <a class="el" href="classROSHookController.html#a98762421da7a4cad11bf08f57f659554">ROSHookController</a>
 , <a class="el" href="classROSLEDController.html#ad41debdb9ed41d0fa16f5f5d2a2cd92d">ROSLEDController</a>
 , <a class="el" href="classROSJointController.html#af0e78cba0bf44b19aab85b3a950e7582">ROSJointController</a>
 , <a class="el" href="classROSIKClient.html#aed3140516cfb135f8101a24b3c8fa31b">ROSIKClient</a>
+, <a class="el" href="classROSTFBroadcaster.html#a79ad44a742ea8cafb57e281f9ff07a06">ROSTFBroadcaster</a>
+, <a class="el" href="structROSServiceInterface.html#a0e2f31e019c4dc789209da674e2d73fe">ROSServiceInterface&lt; T &gt;</a>
+</li>
+<li>is_active()
+: <a class="el" href="classROSCameraController.html#a128eed3d4c832931fa52ad6828a88bbb">ROSCameraController</a>
 </li>
 </ul>
 
@@ -150,12 +178,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>left_reverce()
 : <a class="el" href="classROSHookController.html#a204234498c264ccec5b62e4d6e621415">ROSHookController</a>
 </li>
+<li>LeftRequest()
+: <a class="el" href="structROSIKClient_1_1LeftRequest.html#ad92726158c811d21b9961bc280af36ce">ROSIKClient::LeftRequest</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>new_data()
+: <a class="el" href="classROSCameraController.html#a5fd5cca136d5f4e1fed2fdc44bb2928a">ROSCameraController</a>
+, <a class="el" href="structROSSubscriberInterface.html#a7369895a0ad11dd9d4cddb61130c6957">ROSSubscriberInterface&lt; T &gt;</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>open_camera()
+: <a class="el" href="classROSCameraController.html#ab28f7b451dcf93d9efe4ae132252b05f">ROSCameraController</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>right_reverce()
 : <a class="el" href="classROSHookController.html#a953c598ce3f230643ee570dbd9e5d4a4">ROSHookController</a>
+</li>
+<li>RightRequest()
+: <a class="el" href="structROSIKClient_1_1RightRequest.html#ab4216936ef31fe704d5ae58923827e9f">ROSIKClient::RightRequest</a>
+</li>
+<li>ROSCameraController()
+: <a class="el" href="classROSCameraController.html#a53a0428238528e26c3c0bb320380ba92">ROSCameraController</a>
 </li>
 <li>ROSHookController()
 : <a class="el" href="classROSHookController.html#ab4deb91ff2b70ea541fe6861c72b2b6f">ROSHookController</a>
@@ -168,6 +220,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>ROSLEDController()
 : <a class="el" href="classROSLEDController.html#a18f763010817eb7c614b8128fd97590d">ROSLEDController</a>
+</li>
+<li>ROSServiceInterface()
+: <a class="el" href="structROSServiceInterface.html#a908dee76dc5c456d9d53effea06ad21a">ROSServiceInterface&lt; T &gt;</a>
+</li>
+<li>ROSSubscriberInterface()
+: <a class="el" href="structROSSubscriberInterface.html#aadad61bfefd4db83cfb4948e5a6bf5ef">ROSSubscriberInterface&lt; T &gt;</a>
 </li>
 <li>ROSTFBroadcaster()
 : <a class="el" href="classROSTFBroadcaster.html#ad84f29af6a2e1c0e303441ea47f52a13">ROSTFBroadcaster</a>
@@ -211,7 +269,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -223,7 +281,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 30 2016 21:27:43 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 1 2016 13:46:48 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

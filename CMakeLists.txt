@@ -176,6 +176,12 @@ add_executable(sample_tf_broadcast src/sample_tf_broadcast.cpp
 target_link_libraries(sample_tf_broadcast
   ${catkin_LIBRARIES}
 )
+add_executable(sample_camera_controll src/sample_camera_controll.cpp
+  src/ROSCameraController.cpp
+)
+target_link_libraries(sample_camera_controll
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$ROSCameraController_8hpp.html" title="This class provides easy access to three cameras placed on baxter." alt="" coords="67,83,267,112"/>
+<area shape="rect" id="node7" href="$ROSInterface_8hpp.html" title="Interface Library for easy access to the ROS." alt="" coords="229,160,379,189"/>
+<area shape="rect" id="node5" href="$ROSCameraController_8cpp.html" title="Implimentation of ROSCameraController." alt="" coords="5,160,205,189"/>
+</map>

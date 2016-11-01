@@ -113,10 +113,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setter Joint angle specified by &lt;Left/Right&gt;JCommand class.  <a href="#acbae127e25d47683f0804af8c4d34093"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#a90e8ab41b39b51bbf3e86767f9127b9f">set_command</a> (const <a class="el" href="structROSJointController_1_1RightJCommand.html">RightJCommand</a> &amp;right_joint_angle)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">setter.  <a href="#a90e8ab41b39b51bbf3e86767f9127b9f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#a31ed421073da968ca3b2b7140b8b320a">get_left_joint_angle</a> (std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;left_joint_angle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">getter.  <a href="#a31ed421073da968ca3b2b7140b8b320a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#a505c9720aa1fc98d9cf8cbdb135fdab9">get_right_joint_angle</a> (std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;right_joint_angle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">getter.  <a href="#a505c9720aa1fc98d9cf8cbdb135fdab9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#ad752109f17dc093b0f520e8c6da2ead0">get_joint_angle</a> (std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;left_joint_angle, std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;right_joint_angle)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">getter.  <a href="#ad752109f17dc093b0f520e8c6da2ead0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6850ad5d8f96edb5246d8ff82ad9b3a3"></a><!-- doxytag: member="ROSJointController::JOINTS_NUM" ref="a6850ad5d8f96edb5246d8ff82ad9b3a3" args="" -->
-static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>JOINTS_NUM</b> = 7</td></tr>
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> = 7</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of joints in arm. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c66760348dab3c42d10c19433887081"></a><!-- doxytag: member="ROSJointController::OTHER_JOINTS_NUM" ref="a0c66760348dab3c42d10c19433887081" args="" -->
+static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classROSJointController.html#a0c66760348dab3c42d10c19433887081">OTHER_JOINTS_NUM</a> = 3</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of other joint. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>An interface with Baxter Joints Angles can be set by using the class of Left/RightJCommand. </p>
@@ -143,6 +153,121 @@ static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ad752109f17dc093b0f520e8c6da2ead0"></a><!-- doxytag: member="ROSJointController::get_joint_angle" ref="ad752109f17dc093b0f520e8c6da2ead0" args="(std::array&lt; double, JOINTS_NUM &gt; &amp;left_joint_angle, std::array&lt; double, JOINTS_NUM &gt; &amp;right_joint_angle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classROSJointController.html#ad752109f17dc093b0f520e8c6da2ead0">ROSJointController::get_joint_angle</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>left_joint_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>right_joint_angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>getter. </p>
+<p>Get current joint postion that subscribed from robot_state_publisher </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">right_joint_angle</td><td>right joints state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classROSJointController_ad752109f17dc093b0f520e8c6da2ead0_cgraph.png" border="0" usemap="#classROSJointController_ad752109f17dc093b0f520e8c6da2ead0_cgraph" alt=""/></div>
+<map name="classROSJointController_ad752109f17dc093b0f520e8c6da2ead0_cgraph" id="classROSJointController_ad752109f17dc093b0f520e8c6da2ead0_cgraph">
+<area shape="rect" id="node3" href="classROSJointController.html#a31ed421073da968ca3b2b7140b8b320a" title="getter." alt="" coords="291,5,544,35"/><area shape="rect" id="node5" href="classROSJointController.html#a505c9720aa1fc98d9cf8cbdb135fdab9" title="getter." alt="" coords="287,59,548,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a31ed421073da968ca3b2b7140b8b320a"></a><!-- doxytag: member="ROSJointController::get_left_joint_angle" ref="a31ed421073da968ca3b2b7140b8b320a" args="(std::array&lt; double, JOINTS_NUM &gt; &amp;left_joint_angle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classROSJointController.html#a31ed421073da968ca3b2b7140b8b320a">ROSJointController::get_left_joint_angle</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>left_joint_angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>getter. </p>
+<p>Get current joint postion that subscribed from robot_state_publisher </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left_joint_angle</td><td>left joints state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classROSJointController_a31ed421073da968ca3b2b7140b8b320a_icgraph.png" border="0" usemap="#classROSJointController_a31ed421073da968ca3b2b7140b8b320a_icgraph" alt=""/></div>
+<map name="classROSJointController_a31ed421073da968ca3b2b7140b8b320a_icgraph" id="classROSJointController_a31ed421073da968ca3b2b7140b8b320a_icgraph">
+<area shape="rect" id="node3" href="classROSJointController.html#ad752109f17dc093b0f520e8c6da2ead0" title="getter." alt="" coords="311,5,540,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a505c9720aa1fc98d9cf8cbdb135fdab9"></a><!-- doxytag: member="ROSJointController::get_right_joint_angle" ref="a505c9720aa1fc98d9cf8cbdb135fdab9" args="(std::array&lt; double, JOINTS_NUM &gt; &amp;right_joint_angle)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classROSJointController.html#a505c9720aa1fc98d9cf8cbdb135fdab9">ROSJointController::get_right_joint_angle</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; double, <a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">JOINTS_NUM</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>right_joint_angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>getter. </p>
+<p>Get current joint postion that subscribed from robot_state_publisher </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left_joint_angle</td><td>left joints state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classROSJointController_a505c9720aa1fc98d9cf8cbdb135fdab9_icgraph.png" border="0" usemap="#classROSJointController_a505c9720aa1fc98d9cf8cbdb135fdab9_icgraph" alt=""/></div>
+<map name="classROSJointController_a505c9720aa1fc98d9cf8cbdb135fdab9_icgraph" id="classROSJointController_a505c9720aa1fc98d9cf8cbdb135fdab9_icgraph">
+<area shape="rect" id="node3" href="classROSJointController.html#ad752109f17dc093b0f520e8c6da2ead0" title="getter." alt="" coords="319,5,548,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -208,7 +333,7 @@ static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -220,7 +345,7 @@ static constexpr unsigned int&#160;</td><td class="memItemRight" valign="bottom"
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 30 2016 21:27:43 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 1 2016 13:46:48 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

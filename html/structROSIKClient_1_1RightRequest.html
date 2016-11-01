@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -124,14 +124,108 @@ Collaboration diagram for ROSIKClient::RightRequest:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3e2878f4ec3b2ed7caf50abc297c5e2"></a><!-- doxytag: member="ROSIKClient::RightRequest::RightRequest" ref="ae3e2878f4ec3b2ed7caf50abc297c5e2" args="(const BCMSSolvePositionIK &amp;)" -->
 &#160;</td><td class="memItemRight" valign="bottom"><b>RightRequest</b> (const BCMSSolvePositionIK &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff61c1585a94e872830662a03a15fad4"></a><!-- doxytag: member="ROSIKClient::RightRequest::RightRequest" ref="aff61c1585a94e872830662a03a15fad4" args="(const int, const std::array&lt; double, 3 &gt; &amp;, const std::array&lt; double, 4 &gt; &amp;)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>RightRequest</b> (const int, const std::array&lt; double, 3 &gt; &amp;, const std::array&lt; double, 4 &gt; &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a39b32feb5d4282fdc7e2a2764e4f64a1"></a><!-- doxytag: member="ROSIKClient::RightRequest::RightRequest" ref="a39b32feb5d4282fdc7e2a2764e4f64a1" args="(const int, const std::array&lt; double, 7 &gt; &amp;, const std::array&lt; double, 3 &gt; &amp;, const std::array&lt; double, 4 &gt; &amp;)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>RightRequest</b> (const int, const std::array&lt; double, 7 &gt; &amp;, const std::array&lt; double, 3 &gt; &amp;, const std::array&lt; double, 4 &gt; &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structROSIKClient_1_1RightRequest.html#ab4216936ef31fe704d5ae58923827e9f">RightRequest</a> (const int seed_mode, const std::array&lt; double, 3 &gt; &amp;trans, const std::array&lt; double, 4 &gt; &amp;rot)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#ab4216936ef31fe704d5ae58923827e9f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structROSIKClient_1_1RightRequest.html#a57d5eeed03d2f746dd7b8610f464dddb">RightRequest</a> (const int seed_mode, const std::array&lt; double, 7 &gt; &amp;seed_angle, const std::array&lt; double, 3 &gt; &amp;trans, const std::array&lt; double, 4 &gt; &amp;rot)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a57d5eeed03d2f746dd7b8610f464dddb"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Wrapper class to describe Right hand state. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab4216936ef31fe704d5ae58923827e9f"></a><!-- doxytag: member="ROSIKClient::RightRequest::RightRequest" ref="ab4216936ef31fe704d5ae58923827e9f" args="(const int seed_mode, const std::array&lt; double, 3 &gt; &amp;trans, const std::array&lt; double, 4 &gt; &amp;rot)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ROSIKClient::RightRequest::RightRequest </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>seed_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 3 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>trans</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 4 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed_mode</td><td>(see <a href="http://sdk.rethinkrobotics.com/wiki/API_Reference">http://sdk.rethinkrobotics.com/wiki/API_Reference</a>) </td></tr>
+    <tr><td class="paramname">trans</td><td>target translation </td></tr>
+    <tr><td class="paramname">rot</td><td>target rotation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a57d5eeed03d2f746dd7b8610f464dddb"></a><!-- doxytag: member="ROSIKClient::RightRequest::RightRequest" ref="a57d5eeed03d2f746dd7b8610f464dddb" args="(const int seed_mode, const std::array&lt; double, 7 &gt; &amp;seed_angle, const std::array&lt; double, 3 &gt; &amp;trans, const std::array&lt; double, 4 &gt; &amp;rot)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ROSIKClient::RightRequest::RightRequest </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>seed_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 7 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>seed_angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 3 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>trans</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; double, 4 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>A constructor. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed_mode</td><td>(see <a href="http://sdk.rethinkrobotics.com/wiki/API_Reference">http://sdk.rethinkrobotics.com/wiki/API_Reference</a>) </td></tr>
+    <tr><td class="paramname">seed_angle</td><td>seed angle </td></tr>
+    <tr><td class="paramname">trans</td><td>target translation </td></tr>
+    <tr><td class="paramname">rot</td><td>target rotation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="ROSIKClient_8hpp_source.html">ROSIKClient.hpp</a></li>
 <li>src/<a class="el" href="ROSIKClient_8cpp.html">ROSIKClient.cpp</a></li>
 </ul>
@@ -141,7 +235,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -153,7 +247,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 30 2016 21:27:43 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 1 2016 13:46:48 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

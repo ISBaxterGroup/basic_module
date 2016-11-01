@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$ROSFramework_8hpp.html" title="Framework for using ros." alt="" coords="3369,160,3511,189"/>
+<area shape="rect" id="node12" href="$ROSHookController_8hpp.html" title="This class publishes gripper state." alt="" coords="329,160,492,189"/>
+<area shape="rect" id="node21" href="$ROSJointController_8hpp.html" title="This class publishes angle in each joint." alt="" coords="3585,160,3745,189"/>
+<area shape="rect" id="node43" href="$ROSIKClient_8hpp.html" title="Class for calling ik service easily." alt="" coords="183,160,305,189"/>
+<area shape="rect" id="node51" href="$ROSTFListener_8hpp.html" title="This class listenes the value of tf in each cycle." alt="" coords="567,160,705,189"/>
+<area shape="rect" id="node63" href="$ROSTFBroadcaster_8hpp.html" title="This class Broadcasts the tf value in each cycle." alt="" coords="729,160,892,189"/>
+<area shape="rect" id="node73" href="$ROSCameraController_8hpp.html" title="This class provides easy access to three cameras placed on baxter." alt="" coords="2244,83,2423,112"/>
+</map>

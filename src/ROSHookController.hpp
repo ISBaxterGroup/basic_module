@@ -1,10 +1,11 @@
-//------------------------------------------------------------
-// #Description : ROSHookController
-//  This class publishes gripper state.
-// State can be set by using the class of E_LEFT/RIGHT_State 
-// #author: Iwase Hajime
-// #date : 2016.06.01.
-//------------------------------------------------------------
+/**
+ * @file ROSHookController.hpp
+ * @brief 
+ *	This class publishes gripper state.
+ * State can be set by using the class of E_LEFT/RIGHT_State 
+ * @author Iwase
+ * @date 2016.06.01.
+ */
 #ifndef ROS_HOOK_CONTROLLER_HPP
 #define ROS_HOOK_CONTROLLER_HPP
 
@@ -14,15 +15,16 @@
 #include <std_msgs/String.h>
 
 typedef std_msgs::String SMString;
-
-//----------------------------------------------------------
-// ROSHookController
-//----------------------------------------------------------
+/**
+* @class ROSHookController
+* @brief An interface with gripper
+*/
 class ROSHookController{
 public:
 	enum struct E_Left_State{E_Open, E_Close};
 	enum struct E_Right_State{E_Open, E_Close};
 
+private:
 	static constexpr E_Left_State INIT_LEFT_STATE = E_Left_State::E_Open;
 	static constexpr E_Right_State INIT_RIGHT_STATE = E_Right_State::E_Open;
 
@@ -31,7 +33,6 @@ public:
 	static const std::string MSG_BOTH_OPEN;
 	static const std::string MSG_BOTH_CLOSE;
 
-private:
 	bool init_flag;
 	
 	E_Left_State left_state;
@@ -39,16 +40,38 @@ private:
 
 	ros::Publisher publisher;
 public:
+	/**
+	 * @brief A constructor 
+	 */
 	ROSHookController();
-
+	/**
+	 * @brief Initialize publisher and start a thread
+	 */
 	void init();
-
-	void left_reverce();	// Reverce left state
-	void right_reverce();	// Reverce left state
-
-	void set_command(const E_Left_State &);
-	void set_command(const E_Right_State &);
-	void set_command(const E_Left_State &, const E_Right_State &);
+	/**
+	 * @brief Reverce left state (Open <-> Close)
+	 */
+	void left_reverce();
+	/**
+	 * @brief Reverce right state (Open <-> Close)
+	 */
+	void right_reverce();
+	/**
+	 * @brief setter
+	 * @param state Gripper state (E_Open or E_Close)
+	 */
+	void set_command(const E_Left_State & state);
+	/**
+	 * @brief setter
+	 * @param state Gripper state (E_Open or E_Close)
+	 */
+	void set_command(const E_Right_State & state);
+	/**
+	 * @brief setter
+	 * @param left_state Gripper state (E_Open or E_Close)
+	 * @param right_state Gripper state (E_Open or E_Close)
+	 */
+	void set_command(const E_Left_State & left_state, const E_Right_State & right_state);
 
 private:
 	void publish();

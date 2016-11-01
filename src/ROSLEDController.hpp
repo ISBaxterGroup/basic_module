@@ -1,9 +1,10 @@
-//------------------------------------------------------------
-// #Description : ROSLEDController
-// Class for access to Baxter io easily.
-// #author: Iwase Hajime
-// #date : 2016.06.01.
-//------------------------------------------------------------
+/**
+ * @file ROSLEDController.hpp
+ * @brief 
+ *	Class for access to Baxter io easily.
+ * @author Iwase
+ * @date 2016.06.01.
+ */
 #ifndef ROS_LED_CONTROLLER_HPP
 #define ROS_LED_CONTROLLER_HPP
 
@@ -15,11 +16,13 @@
 #include <std_msgs/UInt16.h>
 
 typedef std_msgs::UInt16 SMUint16;
-//----------------------------------------------------------
-// ROSLEDController
-//----------------------------------------------------------
+/**
+* @class ROSLEDController
+* @brief An interface with LED in Baxter head.
+*/
 class ROSLEDController{
 public:
+	//! The number of LED on head
 	static constexpr int LED_NUM = 12;
 	static const unsigned int PUBLISH_FREQUENCY;
 
@@ -37,16 +40,28 @@ private:
 	std::array<bool, LED_NUM> state;
 
 public:
+	/**
+	 * @brief A constructor 
+	 */
 	ROSLEDController();
 	~ROSLEDController();
-	// Initialize publisher and start a thread
+	/**
+	 * @brief Initialize publisher and start a thread
+	 */
 	void init();
-	// Enable controll
+	/**
+	 * @brief Enable led controll
+	 */
 	void enable();
-	// Disable controll
+	/**
+	 * @brief Disable led controll
+	 */
 	void disable();
-	// Set Led state
-	void set_command(const std::array<bool, LED_NUM>&);
+	/**
+	 * @brief setter
+	 * @param led_state Led states array (true : ON, false : OFF)
+	 */
+	void set_command(const std::array<bool, LED_NUM>& led_state);
 
 private:
 	void publish_loop();

@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ROSTFBroadcaster_8cpp.html" title="Implimentation of ROSTFBroadcaster." alt="" coords="5,83,189,112"/>
+<area shape="rect" id="node3" href="$ROSInterface_8hpp.html" title="Interface Library for easy access to the ROS." alt="" coords="5,83,155,112"/>
+<area shape="rect" id="node5" href="$ROSTFBroadcaster_8cpp.html" title="Implimentation of ROSTFBroadcaster." alt="" coords="179,83,363,112"/>
 </map>

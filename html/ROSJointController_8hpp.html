@@ -95,18 +95,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;std_msgs/UInt16.h&gt;</code><br/>
 <code>#include &lt;std_msgs/Float64.h&gt;</code><br/>
 <code>#include &lt;std_msgs/Empty.h&gt;</code><br/>
+<code>#include &lt;sensor_msgs/JointState.h&gt;</code><br/>
 <code>#include &lt;baxter_core_msgs/JointCommand.h&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ROSJointController.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ROSJointController_8hpp__incl.png" border="0" usemap="#src_2ROSJointController_8hpp" alt=""/></div>
+<map name="src_2ROSJointController_8hpp" id="src_2ROSJointController_8hpp">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="ROSJointController_8hpp__dep__incl.png" border="0" usemap="#src_2ROSJointController_8hppdep" alt=""/></div>
 <map name="src_2ROSJointController_8hppdep" id="src_2ROSJointController_8hppdep">
-<area shape="rect" id="node3" href="ROSJointController_8cpp.html" title="Implimentation of ROSJointController." alt="" coords="5,83,187,112"/></map>
+<area shape="rect" id="node3" href="ROSInterface_8hpp.html" title="Interface Library for easy access to the ROS." alt="" coords="5,83,155,112"/><area shape="rect" id="node5" href="ROSJointController_8cpp.html" title="Implimentation of ROSJointController." alt="" coords="179,83,360,112"/></map>
 </div>
 </div>
 <p><a href="ROSJointController_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -122,12 +125,9 @@ Classes</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Derive the std::array in order to distinguish between the left and right.  <a href="structROSJointController_1_1RightJCommand.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4910f100e28281fd43cb75a0ada891b0"></a><!-- doxytag: member="ROSJointController.hpp::BCMJointCommand" ref="a4910f100e28281fd43cb75a0ada891b0" args="" -->
-typedef <br class="typebreak"/>
-baxter_core_msgs::JointCommand&#160;</td><td class="memItemRight" valign="bottom"><b>BCMJointCommand</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba11660c796357e652e46aa5589a7f00"></a><!-- doxytag: member="ROSJointController.hpp::Joints" ref="aba11660c796357e652e46aa5589a7f00" args="" -->
 typedef std::array&lt; double, <br class="typebreak"/>
-ROSJointController::JOINTS_NUM &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Joints</b></td></tr>
+<a class="el" href="classROSJointController.html#a6850ad5d8f96edb5246d8ff82ad9b3a3">ROSJointController::JOINTS_NUM</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Joints</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class publishes angle in each joint. </p>
@@ -140,7 +140,7 @@ ROSJointController::JOINTS_NUM &gt;&#160;</td><td class="memItemRight" valign="b
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -152,7 +152,7 @@ ROSJointController::JOINTS_NUM &gt;&#160;</td><td class="memItemRight" valign="b
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 30 2016 21:27:43 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 1 2016 13:46:48 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

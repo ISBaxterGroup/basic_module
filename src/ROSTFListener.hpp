@@ -27,6 +27,7 @@
 
 /**
 * @class ROSTFListener
+* @brief An interface with TF.
 */
 class ROSTFListener{
 public:

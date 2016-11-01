@@ -25,6 +25,7 @@
 #include <tf/transform_listener.h>
 /**
 * @class ROSTFBroadcaster
+* @brief An interface with TF.
 */
 class ROSTFBroadcaster{
 public:

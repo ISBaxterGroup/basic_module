@@ -19,7 +19,7 @@
 	src_name_("No_Name_Src"),
 	dst_name_("No_Name_Dst"),
 	trans_{ {0, 0, 0} },
-	rot_{ {1, 0, 0, 0} }
+	rot_{ {0, 0, 0, 1} }
 {};
 ROSTFBroadcaster::ROSTFBroadcaster(const std::string& src_name, const std::string& dst_name):
 	exit_(false),
@@ -27,7 +27,7 @@ ROSTFBroadcaster::ROSTFBroadcaster(const std::string& src_name, const std::strin
 	src_name_(src_name),
 	dst_name_(dst_name),
 	trans_{ {0, 0, 0} },
-	rot_{ {1, 0, 0, 0} }
+	rot_{ {0, 0, 0, 1} }
 {};
 ROSTFBroadcaster::ROSTFBroadcaster(const std::string& src_name, const std::string& dst_name, const std::array<double, 3>& t, const std::array<double, 4>& r):
 	exit_(false),

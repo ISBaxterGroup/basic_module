@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$ROSJointController_8cpp.html" title="Implimentation of ROSJointController." alt="" coords="5,83,187,112"/>
+<area shape="rect" id="node3" href="$ROSInterface_8hpp.html" title="Interface Library for easy access to the ROS." alt="" coords="5,83,155,112"/>
+<area shape="rect" id="node5" href="$ROSJointController_8cpp.html" title="Implimentation of ROSJointController." alt="" coords="179,83,360,112"/>
 </map>

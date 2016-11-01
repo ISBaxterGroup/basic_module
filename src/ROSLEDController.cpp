@@ -1,3 +1,9 @@
+/**
+ * @file ROSLEDController.cpp
+ * @brief 
+ *	Implimentation of ROSLEDController
+ * @author Iwase
+ */
 //----------------------------------------------------------
 // Include
 //----------------------------------------------------------

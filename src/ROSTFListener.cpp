@@ -20,7 +20,7 @@ ROSTFListener::ROSTFListener(const std::string& src, const std::string& dst):
 	src_name(src),
 	dst_name(dst),
 	curr_trans{ {0, 0, 0} },
-	curr_rot{ {0, 0, 0, 0} }
+	curr_rot{ {0, 0, 0, 1} }
 {};
 ROSTFListener::~ROSTFListener()
 {

@@ -1,3 +1,9 @@
+/**
+ * @file ROSHookController.cpp
+ * @brief 
+ *	Implimentation of ROSHookController
+ * @author Iwase
+ */
 //----------------------------------------------------------
 // Include
 //----------------------------------------------------------

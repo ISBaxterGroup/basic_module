@@ -101,50 +101,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00032"></a><a class="code" href="classROSIKClient.html#ad2129797ba74cdf25dd3c9d24cd4d296">00032</a>         <span class="keyword">static</span> constexpr <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classROSIKClient.html#ad2129797ba74cdf25dd3c9d24cd4d296" title="The number of joints in arm.">JOINTS_NUM</a> = 7;   
 <a name="l00037"></a><a class="code" href="structROSIKClient_1_1LeftRequest.html">00037</a>         <span class="keyword">struct </span><a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a> : LRRequest{
 <a name="l00038"></a>00038                 <span class="keyword">explicit</span> <a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>(<span class="keyword">const</span> BCMSSolvePositionIK&amp;);
-<a name="l00039"></a>00039                 <a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp;);
-<a name="l00040"></a>00040                 <a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> std::array&lt;double, 7&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp;);
-<a name="l00041"></a>00041         };
-<a name="l00046"></a><a class="code" href="structROSIKClient_1_1RightRequest.html">00046</a>         <span class="keyword">struct </span><a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a> : LRRequest{
-<a name="l00047"></a>00047                 <span class="keyword">explicit</span> <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> BCMSSolvePositionIK&amp;);
-<a name="l00048"></a>00048                 <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp;);
-<a name="l00049"></a>00049                 <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> std::array&lt;double, 7&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp;, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp;);
-<a name="l00050"></a>00050         };
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="keyword">private</span>:
-<a name="l00053"></a>00053         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_AUTO;
-<a name="l00054"></a>00054         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_USER;
-<a name="l00055"></a>00055         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_CURRENT;
-<a name="l00056"></a>00056         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_NS_MAP;
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058         <span class="keyword">static</span> <span class="keyword">const</span> std::array&lt;std::string, JOINTS_NUM&gt; LEFT_JOINT_NAMES;
-<a name="l00059"></a>00059         <span class="keyword">static</span> <span class="keyword">const</span> std::array&lt;std::string, JOINTS_NUM&gt; RIGHT_JOINT_NAMES;
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="keyword">private</span>:
-<a name="l00062"></a>00062         <span class="keywordtype">bool</span> init_flag;
-<a name="l00063"></a>00063         ros::ServiceClient left_client;
-<a name="l00064"></a>00064         ros::ServiceClient right_client;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         std::array&lt;double, JOINTS_NUM&gt; left_joints;
-<a name="l00067"></a>00067         std::array&lt;double, JOINTS_NUM&gt; right_joints;
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="keyword">public</span>:
-<a name="l00073"></a>00073         <a class="code" href="classROSIKClient.html#a065f0a788a9aed345e59e1f1fbf56f42" title="A constructor.">ROSIKClient</a>();
-<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="classROSIKClient.html#aed3140516cfb135f8101a24b3c8fa31b" title="Initialize publisher and start a thread.">init</a>();
-<a name="l00084"></a>00084         <span class="keywordtype">bool</span> <a class="code" href="classROSIKClient.html#a289271f113960dab16931b2502433c82" title="Call IK service The angles that solved by IK service will be stored in this class.">call</a>(<a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>&amp; left_state);
-<a name="l00091"></a>00091         <span class="keywordtype">bool</span> <a class="code" href="classROSIKClient.html#a289271f113960dab16931b2502433c82" title="Call IK service The angles that solved by IK service will be stored in this class.">call</a>(<a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>&amp; left_state);
-<a name="l00096"></a>00096         std::array&lt;double, JOINTS_NUM&gt; <a class="code" href="classROSIKClient.html#a397ac048d7d8da20c4feccebcf47a0e0" title="get angles that solved by IK">get_left_joints</a>() <span class="keyword">const</span>;
-<a name="l00101"></a>00101         std::array&lt;double, JOINTS_NUM&gt; <a class="code" href="classROSIKClient.html#ae883a92e8febc30ef3816f27dae0b67d" title="get angles that solved by IK">get_right_joints</a>() <span class="keyword">const</span>;
-<a name="l00102"></a>00102         
-<a name="l00103"></a>00103 }; 
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105 <span class="preprocessor">#endif</span>
+<a name="l00045"></a>00045                 <a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> seed_mode, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp; trans, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp; rot);
+<a name="l00053"></a>00053                 <a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> seed_mode, <span class="keyword">const</span> std::array&lt;double, 7&gt;&amp; seed_angle, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp; trans, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp; rot);
+<a name="l00054"></a>00054         };
+<a name="l00059"></a><a class="code" href="structROSIKClient_1_1RightRequest.html">00059</a>         <span class="keyword">struct </span><a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a> : LRRequest{
+<a name="l00060"></a>00060                 <span class="keyword">explicit</span> <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> BCMSSolvePositionIK&amp;);
+<a name="l00067"></a>00067                 <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> seed_mode, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp; trans, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp; rot);
+<a name="l00075"></a>00075                 <a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> seed_mode, <span class="keyword">const</span> std::array&lt;double, 7&gt;&amp; seed_angle, <span class="keyword">const</span> std::array&lt;double, 3&gt;&amp; trans, <span class="keyword">const</span> std::array&lt;double, 4&gt;&amp; rot);
+<a name="l00076"></a>00076         };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="keyword">public</span>:
+<a name="l00079"></a>00079         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_AUTO;
+<a name="l00080"></a>00080         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_USER;
+<a name="l00081"></a>00081         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_CURRENT;
+<a name="l00082"></a>00082         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SEED_NS_MAP;
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 <span class="keyword">private</span>:
+<a name="l00085"></a>00085         <span class="keyword">static</span> <span class="keyword">const</span> std::array&lt;std::string, JOINTS_NUM&gt; LEFT_JOINT_NAMES;
+<a name="l00086"></a>00086         <span class="keyword">static</span> <span class="keyword">const</span> std::array&lt;std::string, JOINTS_NUM&gt; RIGHT_JOINT_NAMES;
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="keyword">private</span>:
+<a name="l00089"></a>00089         <span class="keywordtype">bool</span> init_flag;
+<a name="l00090"></a>00090         ros::ServiceClient left_client;
+<a name="l00091"></a>00091         ros::ServiceClient right_client;
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093         std::array&lt;double, JOINTS_NUM&gt; left_joints;
+<a name="l00094"></a>00094         std::array&lt;double, JOINTS_NUM&gt; right_joints;
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 <span class="keyword">public</span>:
+<a name="l00100"></a>00100         <a class="code" href="classROSIKClient.html#a065f0a788a9aed345e59e1f1fbf56f42" title="A constructor.">ROSIKClient</a>();
+<a name="l00104"></a>00104         <span class="keywordtype">void</span> <a class="code" href="classROSIKClient.html#aed3140516cfb135f8101a24b3c8fa31b" title="Initialize publisher and start a thread.">init</a>();
+<a name="l00111"></a>00111         <span class="keywordtype">bool</span> <a class="code" href="classROSIKClient.html#a289271f113960dab16931b2502433c82" title="Call IK service The angles that solved by IK service will be stored in this class.">call</a>(<a class="code" href="structROSIKClient_1_1LeftRequest.html" title="Wrapper class to describe Left hand state.">LeftRequest</a>&amp; left_state);
+<a name="l00118"></a>00118         <span class="keywordtype">bool</span> <a class="code" href="classROSIKClient.html#a289271f113960dab16931b2502433c82" title="Call IK service The angles that solved by IK service will be stored in this class.">call</a>(<a class="code" href="structROSIKClient_1_1RightRequest.html" title="Wrapper class to describe Right hand state.">RightRequest</a>&amp; left_state);
+<a name="l00123"></a>00123         std::array&lt;double, JOINTS_NUM&gt; <a class="code" href="classROSIKClient.html#a397ac048d7d8da20c4feccebcf47a0e0" title="get angles that solved by IK">get_left_joints</a>() <span class="keyword">const</span>;
+<a name="l00128"></a>00128         std::array&lt;double, JOINTS_NUM&gt; <a class="code" href="classROSIKClient.html#ae883a92e8febc30ef3816f27dae0b67d" title="get angles that solved by IK">get_right_joints</a>() <span class="keyword">const</span>;
+<a name="l00129"></a>00129         
+<a name="l00130"></a>00130 }; 
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="preprocessor">#endif</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -156,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Sep 30 2016 21:27:43 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 1 2016 13:46:48 for basic_module by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
