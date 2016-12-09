@@ -9,8 +9,22 @@
 
 // Hook controller
 #include "ROSHookController.hpp"
-ROSHookController hook_controller;
 using namespace std;
+
+// instanciate hook controller
+ROSHookController hook_controller;
+
+void show_description()
+{
+    cout << "-------------------------------------------------------" << endl;
+    cout << "\\ : Switch right gripper state." << endl;
+    cout << "/ : Switch left gripper state." << endl;
+    cout << ". : Open right gripper with specifyed angle." << endl;
+    cout << ", : Open left gripper with specifyed angle." << endl;
+    cout << "\\ : Open both side gripper with specifyed angle." << endl;
+    cout << "-------------------------------------------------------" << endl << endl;
+};
+
 //----------------------------------------------------------
 // Call back method - key function
 //----------------------------------------------------------
@@ -28,8 +42,8 @@ void NormalKeyIn(unsigned char key, int x, int y){
                 ROSHookController::E_Left_State::E_Open);
 
             // Publish hand state
-            hook_controller.set_command(left_hand_state);
-            cout << "/" << endl;
+            hook_controller.set_state(left_hand_state);
+            cout << "/ pushed. switch gripper state" << endl;
             break;
         case '\\':
             // Reverce hand state
@@ -38,10 +52,24 @@ void NormalKeyIn(unsigned char key, int x, int y){
                 ROSHookController::E_Right_State::E_Open);
 
             // Publish hand state
-            hook_controller.set_command(right_hand_state);
-            cout << "\\" << endl;
+            hook_controller.set_state(right_hand_state);
+            cout << "\\ pushed. switch gripper state" << endl;
             break;
-
+        case '.':
+            // Publish hand state 
+            hook_controller.set_state( ROSHookController::E_Right_State::E_Angle, ROSHookController::Degree(30.0) );
+            cout << ". pushed. Gripper openes specifyed angle" << endl;
+            break;
+        case ',':
+            // Publish hand state 
+            hook_controller.set_state( ROSHookController::E_Left_State::E_Angle, ROSHookController::Radian( M_PI / 6.0 ) );
+            cout << ". pushed. Gripper openes specifyed angle" << endl;
+            break;
+        case 'm':
+            // Publish hand state 
+            hook_controller.set_state( ROSHookController::Degree( 25.0 ), ROSHookController::Degree( 34.0 ) );
+            cout << ". pushed. Gripper openes specifyed angle" << endl;
+            break;
         case 27:
             exit(0); 
             break;
@@ -49,6 +77,7 @@ void NormalKeyIn(unsigned char key, int x, int y){
         default: 
             break; 
     }
+    show_description();
 }
 
 //main entry point of this program
@@ -64,7 +93,8 @@ int main(int argc, char *argv[]){
     glutCreateWindow(argv[0]);
     glutDisplayFunc([](){});
     glutKeyboardFunc(NormalKeyIn);
-
+    
+    show_description();
     //start main loop
     glutMainLoop();
 	return 0;
