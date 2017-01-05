@@ -182,6 +182,12 @@ add_executable(sample_camera_controll src/sample_camera_controll.cpp
 target_link_libraries(sample_camera_controll
   ${catkin_LIBRARIES}
 )
+add_executable(sample_subscribe src/sample_subscribe.cpp
+)
+target_link_libraries(sample_subscribe
+  ${catkin_LIBRARIES}
+  ${GLUT_LIBRARY}
+)
 #############
 ## Install ##
 #############
