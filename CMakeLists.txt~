@@ -111,18 +111,18 @@ include_directories(
 )
 
 ## Add subdirectory
-add_subdirectory(src)
+add_subdirectory(src/ros_module)
 
 ## Declare a cpp library
 # add_library(display
-#   sample/${PROJECT_NAME}/display.cpp 
+#   src/${PROJECT_NAME}/display.cpp 
 # )
 
 #set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 set(CMAKE_BUILD_TYPE Release)
 add_definitions(-std=c++0x)
 
-add_executable(sample_hook sample/sample_hook.cpp
+add_executable(sample_hook src/sample_hook.cpp
 )
 target_link_libraries(sample_hook
   ros_module
@@ -131,7 +131,7 @@ target_link_libraries(sample_hook
   ${GLUT_LIBRARY}
   ${catkin_LIBRARIES}
 )
-add_executable(sample_arm sample/sample_arm.cpp
+add_executable(sample_arm src/sample_arm.cpp
 )
 target_link_libraries(sample_arm
   ros_module
@@ -140,7 +140,7 @@ target_link_libraries(sample_arm
   ${GLUT_LIBRARY}
   ${catkin_LIBRARIES}
 )
-add_executable(sample_ik sample/sample_ik.cpp
+add_executable(sample_ik src/sample_ik.cpp
 )
 target_link_libraries(sample_ik
   ros_module
@@ -149,7 +149,7 @@ target_link_libraries(sample_ik
   ${GLUT_LIBRARY}
   ${catkin_LIBRARIES}
 )
-add_executable(sample_stop sample/sample_stop.cpp
+add_executable(sample_stop src/sample_stop.cpp
 )
 target_link_libraries(sample_stop
   ros_module
@@ -158,31 +158,31 @@ target_link_libraries(sample_stop
   ${GLUT_LIBRARY}
   ${catkin_LIBRARIES}
 )
-add_executable(sample_led sample/sample_led.cpp
+add_executable(sample_led src/sample_led.cpp
 )
 target_link_libraries(sample_led
   ros_module
   ${catkin_LIBRARIES}
 )
-add_executable(sample_tf_listen sample/sample_tf_listen.cpp
+add_executable(sample_tf_listen src/sample_tf_listen.cpp
 )
 target_link_libraries(sample_tf_listen
   ros_module
   ${catkin_LIBRARIES}
 )
-add_executable(sample_tf_broadcast sample/sample_tf_broadcast.cpp
+add_executable(sample_tf_broadcast src/sample_tf_broadcast.cpp
 )
 target_link_libraries(sample_tf_broadcast
   ros_module
   ${catkin_LIBRARIES}
 )
-add_executable(sample_camera_controll sample/sample_camera_controll.cpp
+add_executable(sample_camera_controll src/sample_camera_controll.cpp
 )
 target_link_libraries(sample_camera_controll
   ros_module
   ${catkin_LIBRARIES}
 )
-add_executable(sample_subscribe sample/sample_subscribe.cpp
+add_executable(sample_subscribe src/sample_subscribe.cpp
 )
 target_link_libraries(sample_subscribe
   ros_module

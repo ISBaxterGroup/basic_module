@@ -8,7 +8,7 @@
 //----------------------------------------------------------
 // Include
 //----------------------------------------------------------
-#include "ROSCameraController.hpp"
+#include <ros_module/ROSInterface.hpp>
 
 constexpr char ROSCameraController::CameraController::service_open_name[];
 constexpr char ROSCameraController::CameraController::service_close_name[];
