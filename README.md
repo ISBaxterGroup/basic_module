@@ -2,28 +2,27 @@
 The basic module for communicating with baxter easily
 
 ## ROSIKClient
-Class for utilizing the ikservice
+Class for access to the ik_service
 ### sample program
 - sample_ik.cpp
 
 ## ROSJointController
-Class to be sent to the Baxter joint angles at a constant cycle
+This class send joint angles to the Baxter at constant cycle.
 ### sample program
 - sample_arm.cpp
 - sample_stop.cpp
 
 ## ROSTFListener, RosTFBroadcaster
-Class to listen and Broadcast transform.
+Class for using tf.
 ### sample program
 - sample_tf_listen.cpp
 - sample_tf_broadcast.cpp
 
 ## ROSLEDController
-Class that manages the state of the LED that is attached to the head
 ### sample program
 - sample_led.cpp
 
 ## ROSHookController
-Class that specifies the state of the gripper
+class for Gripper control
 ### sample program
 - sample_hook.cpp
