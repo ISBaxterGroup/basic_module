@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   visualization_msgs
   cv_bridge
+  message_generation
 )
 find_package(GLUT REQUIRED)
 find_package(OpenGL REQUIRED)
@@ -62,11 +63,10 @@ find_package(OpenCV REQUIRED)
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+   FILES
+   Deproject.srv
+ )
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -76,10 +76,10 @@ find_package(OpenCV REQUIRED)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   baxter_core_msgs#   geometry_msgs#   nav_msgs#   std_msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # and/or other packages containing depended messages
+)
 
 ###################################
 ## catkin specific configuration ##
@@ -185,6 +185,13 @@ target_link_libraries(sample_camera_controll
 add_executable(sample_subscribe sample/sample_subscribe.cpp
 )
 target_link_libraries(sample_subscribe
+  ros_module
+  ${catkin_LIBRARIES}
+  ${GLUT_LIBRARY}
+)
+add_executable(sample_realsense sample/sample_realsense.cpp
+)
+target_link_libraries(sample_realsense
   ros_module
   ${catkin_LIBRARIES}
   ${GLUT_LIBRARY}

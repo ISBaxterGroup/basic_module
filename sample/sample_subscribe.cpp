@@ -20,9 +20,6 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 
-#include <GL/glut.h>
-#include <GL/freeglut.h>
-
 #include <ros_module/ROSInterface.hpp>
 
 // instanciate ROSSubscriberInterface
