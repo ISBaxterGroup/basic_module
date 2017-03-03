@@ -18,12 +18,17 @@
 #include <ros_module/ROSInterface.hpp>
 
 struct ROSConnect{
+    //! Joint controll class.
     static ROSJointController joint_controller;
+    //! Access to Ik solver.
     static ROSIKClient ik_client;
+    //! tf
     static ROSTFListener tf_base_camera;
     static ROSTFListener tf_base_rightgripper;
     static ROSTFListener tf_rendgipper2_rightgipper;
+    //! Subscriber
     static ROSSubscriberInterface<sensor_msgs::ImageConstPtr> image_subscriber;
+    //! Service interface
     static ROSServiceInterface<basic_module::Deproject> deproject_service;
     static inline void init()
     {
