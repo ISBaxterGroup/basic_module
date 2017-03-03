@@ -30,7 +30,7 @@ ROSIKClient::LRRequest::LRRequest(const int mode, const std::array<double, 3>& x
 
 	request.pose_stamp.resize(1);
 	request.pose_stamp[0].header.stamp = ros::Time::now();
-	request.pose_stamp[0].header.frame_id = mode;
+	request.pose_stamp[0].header.frame_id = "base";
 	request.pose_stamp[0].pose.position.x = x[0];
 	request.pose_stamp[0].pose.position.y = x[1];
 	request.pose_stamp[0].pose.position.z = x[2];
@@ -46,7 +46,7 @@ ROSIKClient::LRRequest::LRRequest(const int mode, const std::array<double, 7>& s
 
 	request.pose_stamp.resize(1);
 	request.pose_stamp[0].header.stamp = ros::Time::now();
-	request.pose_stamp[0].header.frame_id = mode;
+	request.pose_stamp[0].header.frame_id = "base";
 	request.pose_stamp[0].pose.position.x = x[0];
 	request.pose_stamp[0].pose.position.y = x[1];
 	request.pose_stamp[0].pose.position.z = x[2];
@@ -101,7 +101,7 @@ bool ROSIKClient::call(LeftRequest& r)
 {
 	baxter_core_msgs::SolvePositionIK* r_ptr = &r;
 	if (!left_client.call(*r_ptr))
-	    ROS_ERROR("rf::search_angle - FAILED to left call service");
+	    ROS_ERROR("ROSIKClient::call - FAILED to left call service");
 	if (r.response.isValid[0])
 		copy_n(r.response.joints[0].position.begin(), JOINTS_NUM, left_joints.begin());
 	
@@ -111,7 +111,7 @@ bool ROSIKClient::call(RightRequest& r)
 {
 	baxter_core_msgs::SolvePositionIK* r_ptr = &r;
 	if (!right_client.call(*r_ptr))
-	    ROS_ERROR("rf::search_angle - FAILED to right call service");
+	    ROS_ERROR("ROSIKClient::call - FAILED to right call service");
 	if (r.response.isValid[0])
 		copy_n(r.response.joints[0].position.begin(), JOINTS_NUM, right_joints.begin());
 	

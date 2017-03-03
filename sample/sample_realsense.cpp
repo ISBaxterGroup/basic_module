@@ -82,6 +82,7 @@ void move_right_hand(const std::array<double, 3>& target_pos,const std::array<do
         // Set angle
         ROSConnect::joint_controller.set_command(ROSJointController::RightJCommand(joints_r));
     }
+    else std::cout << "ik can't solve!" << std::endl;
 };
 
 //! transform
@@ -97,6 +98,7 @@ std::array<double, 3> deproject(const std::array<double, 2>& request)
     srv.request.u = request[0];
     srv.request.v = request[1];
     // call deproject service
+    std::cout << "deproject - calling deproject_service." << std::endl;
     if(!ROSConnect::deproject_service.call(srv)){
         std::cout << "service return false" << std::endl;
         exit(EXIT_FAILURE);
@@ -132,7 +134,6 @@ std::array<double, 2> get_pixel(){
     cv::Mat image = cv_ptr->image;  
 
     // click event 
-    std::vector<cv::Vec2d> p_vec;
     cv::Vec2d cap1;
     auto func = [](int event, int x, int y, int flags, void* param){
             cv::Vec2d* p_vec = static_cast<cv::Vec2d*>(param);
@@ -148,14 +149,14 @@ std::array<double, 2> get_pixel(){
         };
 
     // User click time.
-    std::cout << "click right hand target point! and press any key" << std::endl;
+    std::cout << "click to capture right hand target point! and press any key" << std::endl;
     cv::namedWindow("cap1", cv::WINDOW_AUTOSIZE);
     cv::setMouseCallback("cap1", func, (void *)&cap1);
     imshow("cap1", image);
     cv::waitKey();
     cv::destroyWindow("cap1");
 
-    return std::array<double, 2>{p_vec.front()[0], p_vec.front()[1]};
+    return std::array<double, 2>{cap1[0], cap1[1]};
 };
 
 //main entry point of this program
@@ -182,6 +183,9 @@ int main(int argc, char *argv[]){
         std::array<double, 3> base_coordinates_point = transform_camera_to_base(deprojected_point);
         
         move_right_hand(to_right_gripper_target(base_coordinates_point), rot);
+
+        std::cout << "Enter to get color image, q to quit." << std::endl;
+        std::cout << "input -> " ;
     }
 
 	return 0;
